@@ -1,12 +1,13 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
+import random
 
-from Entity import Entity
+from code.Const import WIN_HEIGHT, WIN_WIDTH
+from code.Entity import Entity
 
 
 class Enemy(Entity):
-    def __init__(self):
-        pass
+    def __init__(self, name: str, position: tuple, speed: int):
+        super().__init__(name, position)
+        self.speed = speed
 
-    def move(self, ):
-        pass
+    def move(self):
+        self.rect.centery += self.speed
