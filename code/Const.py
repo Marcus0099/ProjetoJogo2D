@@ -10,9 +10,9 @@ EVENT_ENEMY2 = pygame.USEREVENT + 2
 
 
 ENTITY_SPEED = {
-    'Player1Car': 3,
-    'Player2Car': 3,
-    'Enemy1Car': 2,
+    'Player1Car': 4,
+    'Player2Car': 4,
+    'Enemy1Car': 3,
     'Enemy2Car': 2,
 }
 
@@ -44,3 +44,7 @@ PLAYER_KEY_LEFT = {'Player1Car': pygame.K_LEFT,
                  'Player2Car': pygame.K_a}
 PLAYER_KEY_RIGHT = {'Player1Car': pygame.K_RIGHT,
                  'Player2Car': pygame.K_d}
+
+# S
+SPAWN_TIME = {'Enemy1Car': 3000,
+              'Enemy2Car': 2000,}

@@ -6,7 +6,7 @@ import pygame
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.Const import C_WHITE, WIN_HEIGHT, MENU_OPTION, EVENT_ENEMY1, EVENT_ENEMY2, WIN_WIDTH
+from code.Const import C_WHITE, WIN_HEIGHT, MENU_OPTION, EVENT_ENEMY1, EVENT_ENEMY2, WIN_WIDTH, SPAWN_TIME
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
 from code.EntityMediator import EntityMediator
@@ -24,8 +24,8 @@ class Level:
         self.entity_list.append(EntityFactory.get_entity('Player1Car'))
         if game_mode in [MENU_OPTION[1], MENU_OPTION[2]]:
             self.entity_list.append(EntityFactory.get_entity('Player2Car'))
-        pygame.time.set_timer(EVENT_ENEMY1, 3000)
-        pygame.time.set_timer(EVENT_ENEMY2, 2000)
+        pygame.time.set_timer(EVENT_ENEMY1, SPAWN_TIME['Enemy1Car'])
+        pygame.time.set_timer(EVENT_ENEMY2, SPAWN_TIME['Enemy2Car'])
 
     def is_safe_spawn(self, new_rect):
         for ent in self.entity_list:
@@ -48,7 +48,7 @@ class Level:
                     pygame.quit()
                     sys.exit()
 
-                elif event.type == EVENT_ENEMY1:
+                if event.type == EVENT_ENEMY1:
                     for _ in range(10):
                         x = random.randint(0, WIN_WIDTH - 50)
                         y = -10
@@ -57,7 +57,7 @@ class Level:
                         if self.is_safe_spawn(enemy.rect):
                             self.entity_list.append(enemy)
                             break
-                elif event.type == EVENT_ENEMY2:
+                if event.type == EVENT_ENEMY2:
                     for _ in range(10):
                         x = random.randint(0, WIN_WIDTH - 50)
                         y = -10
@@ -71,7 +71,7 @@ class Level:
             self.level_text(14, f'fps: {clock.get_fps():.0f}', C_WHITE, (10, WIN_HEIGHT - 35))
             self.level_text(14, f'entidades: {len(self.entity_list)}', C_WHITE, (10, WIN_HEIGHT - 20))
             pygame.display.flip()
-            #Collisions
+            # Collisions
             EntityMediator.verify_collision(entity_list=self.entity_list)
             EntityMediator.verify_health(entity_list=self.entity_list)
 

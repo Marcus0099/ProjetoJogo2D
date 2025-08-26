@@ -26,6 +26,6 @@ class EntityFactory:
             case 'Player2Car':
                 return Player('Player2Car', (WIN_WIDTH // 2 + 40, WIN_HEIGHT - 150))
             case 'Enemy1Car':
-                 return Enemy('Enemy1Car', (random.randint(0, WIN_WIDTH), -10), ENTITY_SPEED['Enemy1Car'])
+                 return Enemy('Enemy1Car', (WIN_HEIGHT - 10, random.randint(10, WIN_WIDTH)), ENTITY_SPEED['Enemy1Car'])
             case 'Enemy2Car':
-                return Enemy('Enemy2Car', (random.randint(0, WIN_WIDTH), -10), ENTITY_SPEED['Enemy2Car'])
+                return Enemy('Enemy2Car', (WIN_HEIGHT - 10, random.randint(10, WIN_WIDTH)), ENTITY_SPEED['Enemy2Car'])
