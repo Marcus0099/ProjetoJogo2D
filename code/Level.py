@@ -15,7 +15,6 @@ from code.Enemy import Enemy
 
 class Level:
     def __init__(self, window, name, game_mode):
-        self.timeout = 20000
         self.window = window
         self.name = name
         self.game_mode = game_mode
@@ -67,12 +66,12 @@ class Level:
                             self.entity_list.append(enemy)
                             break
 
-            self.level_text(14, f'{self.name} - Timeout: {self.timeout / 1000:.1f}s', C_WHITE, (10, 5))
             self.level_text(14, f'fps: {clock.get_fps():.0f}', C_WHITE, (10, WIN_HEIGHT - 35))
             self.level_text(14, f'entidades: {len(self.entity_list)}', C_WHITE, (10, WIN_HEIGHT - 20))
             pygame.display.flip()
             # Collisions
-            EntityMediator.verify_collision(entity_list=self.entity_list)
+            if EntityMediator.verify_collision(entity_list=self.entity_list):
+                return 'game over'
             EntityMediator.verify_health(entity_list=self.entity_list)
 
     def level_text(self, text_size: int, text: str, text_color: tuple, text_pos: tuple):

@@ -1,6 +1,7 @@
 # C
 import pygame
 
+C_BLACK = (0, 0, 0)
 C_RED = (255, 0, 0)
 C_WHITE = (255, 255, 255)
 
@@ -18,8 +19,6 @@ ENTITY_SPEED = {
 
 ENTITY_HEALTH = {
     'Level1Bg0': 999,
-    'Level1Bg2': 999,
-    'Level1Bg3': 999,
     'Player1Car': 1,
     'Player2Car': 1,
     'Enemy1Car': 1,
@@ -27,8 +26,8 @@ ENTITY_HEALTH = {
 }
 
 # M
-MENU_OPTION = ('NOVO JOGO 1P',
-               'NOVO JOGO 2P',
+MENU_OPTION = ('NOVO JOGO - 1P',
+               'NOVO JOGO - 2P',
                'SAIR',)
 
 # W
