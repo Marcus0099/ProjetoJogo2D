@@ -21,7 +21,6 @@ class GameOver:
 
             self.menu_text(80, "BATEU!", C_BLACK, ((WIN_WIDTH / 2), 70))
 
-            # Renderiza as opções do menu
             for i in range(len(self.options)):
                 if i == menu_option:
                     self.menu_text(25, self.options[i], C_WHITE, ((WIN_WIDTH / 2), 200 + 30 * i))
@@ -35,24 +34,21 @@ class GameOver:
                     pygame.quit()
                     sys.exit()
                 if event.type == pygame.KEYDOWN:
-                    # Lógica de navegação para baixo
                     if event.key == pygame.K_DOWN:
                         if menu_option < len(self.options) - 1:
                             menu_option += 1
                         else:
                             menu_option = 0
-                    # Lógica de navegação para cima
                     if event.key == pygame.K_UP:
                         if menu_option > 0:
                             menu_option -= 1
                         else:
                             menu_option = len(self.options) - 1
-                    # Lógica de seleção
                     if event.key == pygame.K_RETURN:
                         if menu_option == 0:
-                            return 'game_over'  # Retorna ao menu
+                            return 'game_over'
                         elif menu_option == 1:
-                            pygame.quit()  # Sai do jogo
+                            pygame.quit()
                             sys.exit()
 
     def menu_text(self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple):

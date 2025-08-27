@@ -16,8 +16,8 @@ class EntityFactory:
             case 'Level1Bg':
                 list_bg = []
                 speed = 8
-                bg_name = 'Level1Bg0'  # só uma imagem
-                for copy in range(2):  # duas cópias para loop
+                bg_name = 'Level1Bg0'
+                for copy in range(2):
                     y = copy * WIN_HEIGHT
                     list_bg.append(Background(bg_name, (0, y), speed))
                 return list_bg
