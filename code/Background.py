@@ -9,8 +9,7 @@ class Background(Entity):
         super().__init__(name, position)
         self.speed = speed
 
-    def move(self, ):
+    def move(self):
         self.rect.centery += self.speed
         if self.rect.top >= WIN_HEIGHT:
             self.rect.y = self.rect.y - 2 * self.rect.height
-        pass

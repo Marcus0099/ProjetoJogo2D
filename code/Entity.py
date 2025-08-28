@@ -15,5 +15,5 @@ class Entity(ABC):
         self.health = ENTITY_HEALTH[self.name]
 
     @abstractmethod
-    def move(self, ):
+    def move(self):
         self.rect.centerx -= ENTITY_SPEED[self.name]
